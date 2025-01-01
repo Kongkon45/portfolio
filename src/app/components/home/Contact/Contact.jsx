@@ -6,6 +6,7 @@ import contactData from "../../../../../public/assets/images/contact.json";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareWhatsapp } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
 
 const Contact = () => {
   const {
@@ -20,9 +21,18 @@ const Contact = () => {
     reset();
   };
   return (
-    <div id="contact" className="relative container py-5 md:py-8 lg:py-10 xl:py-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div
+      id="contact"
+      className="relative container py-5 md:py-8 lg:py-10 xl:py-12"
+    >
+      <h3 className="text-3xl lg:text-4xl font-bold text-black text-center leading-normal ">
+        Contact Me
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-5 md:pt-8 lg:pt-10">
         <div className="md:col-span-1">
+          
+        
+
           <h4 className="text-3xl lg:text-4xl font-bold text-black leading-normal">
             Let's Talk
           </h4>
@@ -44,23 +54,49 @@ const Contact = () => {
               </p>
             </div>
           </div>
-          <div>
-          <h5 className="text-[20px] lg:text-xl font-bold text-black leading-normal">
-                Follow Me
-              </h5>
-              <div className="flex items-center gap-3 md:gap-4 lg:gap-5">
-                <FaFacebookSquare className="w-[26px] h-[26px] text-blue-500"/>
-                <FaSquareWhatsapp className="w-[26px] h-[26px] text-blue-500"/>
-                <FaLinkedin className="w-[26px] h-[26px] text-blue-500"/>
-              </div>
-          </div>
+          <div className="">
+            <h5 className="text-[20px] lg:text-xl font-bold text-black leading-normal">
+              Follow Me
+            </h5>
+            <div className="flex items-center gap-3 md:gap-4 lg:gap-5">
+              {/* Facebook Link */}
+              <Link
+                href="https://www.facebook.com/kongkon.jowarder/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                aria-label="Visit my Facebook profile"
+              >
+                <FaFacebookSquare className="w-[28px] h-[28px] text-blue-500 hover:text-blue-600 transition-colors cursor-pointer" />
+              </Link>
 
+              {/* WhatsApp Link */}
+              <Link
+                href="tel:01778934545"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                aria-label="Call me on WhatsApp"
+              >
+                <FaSquareWhatsapp className="w-[28px] h-[28px] text-green-500 hover:text-green-600 transition-colors cursor-pointer" />
+              </Link>
+
+              {/* LinkedIn Link */}
+              <Link
+                href="https://www.linkedin.com/in/kongkon-jowarder-50a12725b/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                aria-label="Visit my LinkedIn profile"
+              >
+                <FaLinkedin className="w-[28px] h-[28px] text-blue-500 hover:text-blue-600 transition-colors cursor-pointer" />
+              </Link>
+            </div>
+          </div>
           <Lottie
             loop
             autoplay
             animationData={contactData}
-            className="w-[450px] h-[450px] -mt-10"
+            className="w-[430px] h-[430px]"
           />
+
         </div>
         <div className="md:col-span-1 bg-gray-900 p-8 rounded-lg shadow-[0px_0px_20px_10px_rgba(0,0,0,0.3)] shadow-blue-500">
           <h4 className="text-3xl lg:text-4xl font-bold text-white leading-normal pb-5">
@@ -111,7 +147,8 @@ const Contact = () => {
                 className="text-base xl:text-lg text-white font-bold text-white leading-normal"
                 htmlFor="phone"
               >
-                Phone Number <sup className="text-base xl:text-lg text-red-500">*</sup>
+                Phone Number{" "}
+                <sup className="text-base xl:text-lg text-red-500">*</sup>
               </label>
               <input
                 className="w-full py-2 px-3 border rounded-lg bg-white text-gray-950 border-gray-900 shadow-lg focus:ring-blue-500 focus:border-blue-500 outline-none"
