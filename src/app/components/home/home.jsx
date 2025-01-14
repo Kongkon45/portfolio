@@ -8,7 +8,7 @@ import Contact from './Contact/Contact';
 const HomePageAllComponents = () => {
     return (
         <div>
-            {/* <ParticlesBackground/> */}
+            <ParticlesBackground/>
             <Hero/>
             <About/>
             <Skills/>
