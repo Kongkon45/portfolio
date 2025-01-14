@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-const Particles = dynamic(()=> import("@tsparticles/react"), {ssr : false})
-const loadFull = dynamic(()=> import("tsparticles"), {ssr: false})
 
+// Dynamically import tsparticles and loadFull
+const Particles = dynamic(() => import("@tsparticles/react"), { ssr: false });
+const loadFull = dynamic(() => import("tsparticles").then((mod) => mod.loadFull), { ssr: false });
 
 const Particle = () => {
   const [init, setInit] = useState(false);
@@ -11,8 +12,9 @@ const Particle = () => {
   useEffect(() => {
     const initParticles = async () => {
       console.log("Initializing Particles...");
-      await initParticlesEngine(async (engine) => {
-        await loadFull(engine);
+      const loadFullParticles = await loadFull();
+      await loadFullParticles((engine) => {
+        console.log("Engine loaded successfully");
       });
       setInit(true);
     };
@@ -109,4 +111,3 @@ const Particle = () => {
 };
 
 export default Particle;
-
