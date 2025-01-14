@@ -1,7 +1,9 @@
 "use client"
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadFull } from "tsparticles";
+const Particles = dynamic(()=> import("@tsparticles/react"), {ssr : false})
+const loadFull = dynamic(()=> import("tsparticles"), {ssr: false})
+
 
 const Particle = () => {
   const [init, setInit] = useState(false);
