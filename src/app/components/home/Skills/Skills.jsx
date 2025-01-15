@@ -7,7 +7,7 @@ const Skills = () => {
       className="relative container pt-5 md:pt-8 lg:pt-10 xl:pt-12"
       id="skills"
     >
-      <h3 className="text-3xl lg:text-4xl font-bold text-black text-center leading-normal ">
+      <h3 className="section-title text-3xl lg:text-4xl font-bold text-center leading-normal ">
         Skills & Expertise
       </h3>
       <div className="pt-5 md:pt-8 lg:pt-10">
